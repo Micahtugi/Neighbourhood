@@ -107,10 +107,10 @@ def create_post(request):
 
     return render(request,'post.html',{'form':form})
 
-# @login_required(login_url='/accounts/login/')
-# def view_post(request):
-#     current_user = request.user
+@login_required(login_url='/accounts/login/')
+def view_post(request):
+    current_user = request.user
 
-#     posts = Post.objects.filter(post_user=current_user)
+    posts = Post.objects.filter(post_user=current_user)
 
-#     return render(request,'view_post.html',{'posts': posts})
+    return render(request,'view_post.html',{'posts': posts})
