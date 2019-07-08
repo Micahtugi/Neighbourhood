@@ -90,22 +90,22 @@ def business(request):
     return render(request,'business.html',{'form':form})
 
 
-# @login_required(login_url='/accounts/login/')
-# def create_post(request):
-#     logged_user = request.user
-#     if request.method == 'POST':
-#         form = PostForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             create = form.save(commit=False)
-#             create.post_user = logged_user
-#             create.save()
-#         return redirect('view_post')
+@login_required(login_url='/accounts/login/')
+def create_post(request):
+    logged_user = request.user
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            create = form.save(commit=False)
+            create.post_user = logged_user
+            create.save()
+        return redirect('view_post')
 
-#     else:
+    else:
 
-#         form = PostForm()
+        form = PostForm()
 
-#     return render(request,'post.html',{'form':form})
+    return render(request,'post.html',{'form':form})
 
 # @login_required(login_url='/accounts/login/')
 # def view_post(request):
