@@ -48,28 +48,28 @@ def profile(request):
 
     return render(request,'profile.html',{'form':form})
 
-# @login_required(login_url='/accounts/login/')
-# def view_profile(request):
-#     current_user = request.user
-#     print(current_user)
-#     business = Business.objects.filter(user=current_user)
-#     prof = Profile.objects.filter(user_prof=current_user)[0:1]
+@login_required(login_url='/accounts/login/')
+def view_profile(request):
+    current_user = request.user
+    print(current_user)
+    business = Business.objects.filter(user=current_user)
+    prof = Profile.objects.filter(user_prof=current_user)[0:1]
 
 
-#     # try:
-#     #      prof = Profile.objects.filter(user_prof=current_user)
-#     # except Exception as e:
-#     #     pass
+    # try:
+    #      prof = Profile.objects.filter(user_prof=current_user)
+    # except Exception as e:
+    #     pass
 
 
-#     return render(request,'view_profile.html',{'profiles':  prof,'bizna':business})
+    return render(request,'view_profile.html',{'profiles':  prof,'bizna':business})
 
 
-# @login_required(login_url='/accounts/login/')
-# def view_business(request):
-#     businesses = Business.objects.all()
+@login_required(login_url='/accounts/login/')
+def view_business(request):
+    businesses = Business.objects.all()
 
-#     return render(request,'view_business.html',{"businesses":businesses})
+    return render(request,'view_business.html',{"businesses":businesses})
 
 
 # @login_required(login_url='/accounts/login/')
