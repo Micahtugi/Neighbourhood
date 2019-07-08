@@ -26,27 +26,27 @@ def neighbour(request):
     return render(request,'neighbour.html',{"form":form})
 
 
-# def welcome(request):
-#     neighbour = Neighbourhood.objects.all()
-#     return render(request,'welcome.html',{"neighbour":neighbour})
+def welcome(request):
+    neighbour = Neighbourhood.objects.all()
+    return render(request,'welcome.html',{"neighbour":neighbour})
 
-# @login_required(login_url='/accounts/login/')
-# def profile(request):
-#     logged_user = request.user
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    logged_user = request.user
 
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             edit = form.save(commit=False)
-#             edit.user_prof = logged_user
-#             edit.save()
-#         return redirect('view_profile')
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.user_prof = logged_user
+            edit.save()
+        return redirect('view_profile')
 
-#     else:
+    else:
 
-#         form = ProfileForm()
+        form = ProfileForm()
 
-#     return render(request,'profile.html',{'form':form})
+    return render(request,'profile.html',{'form':form})
 
 # @login_required(login_url='/accounts/login/')
 # def view_profile(request):
