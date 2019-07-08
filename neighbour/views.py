@@ -72,22 +72,22 @@ def view_business(request):
     return render(request,'view_business.html',{"businesses":businesses})
 
 
-# @login_required(login_url='/accounts/login/')
-# def business(request):
-#     logged_user = request.user
-#     if request.method == 'POST':
-#         form = BusinessForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             edit = form.save(commit=False)
-#             edit.user = logged_user
-#             edit.save()
-#         return redirect('view_business')
+@login_required(login_url='/accounts/login/')
+def business(request):
+    logged_user = request.user
+    if request.method == 'POST':
+        form = BusinessForm(request.POST,request.FILES)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.user = logged_user
+            edit.save()
+        return redirect('view_business')
 
-#     else:
+    else:
 
-#         form = BusinessForm()
+        form = BusinessForm()
 
-#     return render(request,'business.html',{'form':form})
+    return render(request,'business.html',{'form':form})
 
 
 # @login_required(login_url='/accounts/login/')
