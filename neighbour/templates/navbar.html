@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand" style=background-color:black;>
+  <a class="navbar-brand" style="color:white" href="{% url 'welcome' %}">Neighbourhood</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto"> 
+      
+      <a class="navbar-brand" style="color:white" href="{% url 'profile' %}">Profile</a>
+      <a class="navbar-brand" style="color:white" href="{% url 'view_profile' %}">View Profile</a>
+      <a class="navbar-brand" style="color:white" href="{% url 'business' %}">Business</a>
+      <a class="navbar-brand" style="color:white" href="{% url 'view_business' %}">view Business</a>
+      <a class="navbar-brand" style="color:white" href="{% url 'create_post' %}">Post</a>
+      <a class="navbar-brand" style="color:white" href="{% url 'view_post' %}">view post</a>
+    
+  </div>
+  <form class="form-inline my-2 my-lg-0">
+      
+      <a class="nav-link" style="color:white" href="/logout">Logout</a>
+    </form>
+</nav>
