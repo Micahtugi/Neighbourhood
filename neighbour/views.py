@@ -10,20 +10,20 @@ def index(request):
     title = "Index Page"
     return render (request, 'index.html', {"title":title})
 
-# def neighbour(request):
-#     logged_user = request.user
-#     if request.method == 'POST':
-#         form = NeighbourForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             create = form.save(commit=False)
-#             create.neighbour_user = logged_user
-#             create.save()
-#         return redirect('welcome')
+def neighbour(request):
+    logged_user = request.user
+    if request.method == 'POST':
+        form = NeighbourForm(request.POST,request.FILES)
+        if form.is_valid():
+            create = form.save(commit=False)
+            create.neighbour_user = logged_user
+            create.save()
+        return redirect('welcome')
 
-#     else:
+    else:
 
-#         form = NeighbourForm()
-#     return render(request,'neighbour.html',{"form":form})
+        form = NeighbourForm()
+    return render(request,'neighbour.html',{"form":form})
 
 
 # def welcome(request):
